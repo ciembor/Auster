@@ -1,0 +1,11 @@
+{
+  "name": "auster",
+  "version": "0.0.1",
+  "dependencies": {
+    "async": "",
+    "watch": "",
+    "node-promise": "",
+    "rmdir": "",
+    "should": ""
+  }
+}

@@ -1,0 +1,265 @@
+<!doctype html> 
+<html class="vignette overlay inset">     
+	<head>
+		<title>Auster Workflow</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="main.css" rel="stylesheet" type="text/css" />
+		<link href="css/main.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="impress" class="dark-blue">
+			<div id="first" class="step trans" data-x="0" data-y="0">
+				<h1>Demon nasłuchujący i wykonujący akcje synchronizujące</h1>
+			</div>
+			<div id="sec" class="step trans" data-x="0" data-y="0" data-z="-3000">
+				<h1>Auster Workflow</h1>
+			</div>
+			<div class="step slide" data-x="2000" data-y="0">
+				<img id="refresh" src="img/refresh" alt="proces tworzenia strony" />
+			</div>
+			<div class="step always_active" data-x="3500" data-y="0">
+				<img src="img/ff15c015.png" alt="Auster UML" />
+				<div class="step" data-x="3650" data-y="-670"></div>
+				<div class="step" data-x="3650" data-y="-240"></div>
+				<div class="step" data-x="3650" data-y="180"></div>
+			</div>
+			<div id="icon" class="step trans" data-x="3650" data-y="0" data-z="-3000">
+				<img  style="width: 800px" src="img/icon.png" alt="interfejs" />
+			</div>
+			<div id="site" class="step trans" data-x="3650" data-y="0" data-z="-6000">
+				<img  style="width: 800px" src="img/site.png" alt="strona" />
+			</div>
+			<div class="step trans" data-x="5000" data-y="0">
+				<h1>Watchers</h1>
+			</div>
+			<div class="step slide" data-x="6500" data-y="0">
+				<img id="fs" src="img/filesystem.png" style="height: 100%" alt="FsWatcher" />
+			</div>
+			<div class="step slide" data-x="7500" style="text-align: center" data-y="0">
+				<img id="fs" src="img/clock.png" style="height: 100%" alt="TimeWatcher" />
+			</div>
+
+			<div class="step trans" data-x="9000" data-y="0">
+				<h1>Actions</h1>
+			</div>
+			<div class="step slide" data-x="10500" data-y="0">
+				<h1>Kompilacja dynamicznego języka arkuszy stylów LESS do języka CSS</h1>
+				<code><pre>@base: #f938ab;
+
+.box-shadow(@style, @c) when (iscolor(@c)) {
+  box-shadow:         @style @c;
+  -webkit-box-shadow: @style @c;
+  -moz-box-shadow:    @style @c;
+}
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+.box { 
+  color: saturate(@base, 5%);
+  border-color: lighten(@base, 30%);
+  div { .box-shadow(0 0 5px, 30%) }
+}</pre></code>
+			</div>
+			<div class="step slide" data-x="11500" data-y="0">
+				<h1>Kompilacja dynamicznego języka arkuszy stylów SASS do języka CSS</h1>
+				<code><pre>$blue: #3bbfce
+$margin: 16px
+
+.content-navigation
+  border-color: $blue
+  color: darken($blue, 9%)
+
+.border
+  padding: $margin / 2
+  margin: $margin / 2
+  border-color: $blue</pre></code>
+			</div>
+			<div class="step slide" data-x="12500" data-y="0">
+				<h1>Kompilacja języka CoffeeScript do języka JavaScript</h1>
+				<code><pre># Assignment:
+number   = 42
+opposite = true
+
+# Conditions:
+number = -42 if opposite
+
+# Functions:
+square = (x) -> x * x
+
+# Arrays:
+list = [1, 2, 3, 4, 5]
+
+# Objects:
+math =
+  root:   Math.sqrt
+  square: square
+  cube:   (x) -> x * square x
+
+# Splats:
+race = (winner, runners...) ->
+  print winner, runners
+
+# Existence:
+alert "I knew it!" if elvis?
+
+# Array comprehensions:
+cubes = (math.cube num for num in list)</code></pre>
+			</div>
+			<div class="step slide" data-x="12500" data-y="800">
+				<h1>Kompilacja języka CoffeeScript do języka JavaScript</h1>
+				<code><pre>var cubes, list, math, num, number, opposite, race, square,
+  __slice = [].slice;
+
+number = 42;
+
+opposite = true;
+
+if (opposite) {
+  number = -42;
+}
+
+square = function(x) {
+  return x * x;
+};
+
+list = [1, 2, 3, 4, 5];
+
+math = {
+  root: Math.sqrt,
+  square: square,
+  cube: function(x) {
+    return x * square(x);
+  }
+};
+
+race = function() {
+  var runners, winner;
+  winner = arguments[0], runners = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+  return print(winner, runners);
+};
+
+if (typeof elvis !== "undefined" && elvis !== null) {
+  alert("I knew it!");
+}
+
+cubes = (function() {
+  var _i, _len, _results;
+  _results = [];
+  for (_i = 0, _len = list.length; _i < _len; _i++) {
+    num = list[_i];
+    _results.push(math.cube(num));
+  }
+  return _results;
+})();</code></pre>
+			</div>
+			<div class="step slide" style="padding-top:280px" data-x="13500" data-y="0">
+				<h1>Scalanie plików CSS</h1></br>
+				<h1>Scalanie plików JavaScript</h1>
+			</div>
+			<div class="step slide" style="padding-top:280px" data-x="14500" data-y="0">
+				<h1>Kompresja arkuszy stylów CSS</h1></br>
+				<h1>Kompresja skryptów JavaScript</h1>
+			</div>
+			<div class="step slide" data-x="15500" data-y="0">
+				<h1>Dodawanie znaczników czasu do plików HTML</h1>
+				<code><pre>&lt;head&gt;<br/>  &lt;title&gt;Auster Workflow&lt;/title&gt;<br/>  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;<br/>  &lt;link href=&quot;css/main.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;<br/>&lt;/head&gt;</pre></code>
+				<code><pre>&lt;head&gt;<br/>  &lt;title&gt;Auster Workflow&lt;/title&gt;<br/>  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;<br/>  &lt;link href=&quot;css/main.css?timestamp=1362252008&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;<br/>&lt;/head&gt;</pre></code>
+			</div>
+
+			<div class="step slide" style="text-align: center" data-x="16500" data-y="0">
+				<h1>Odświeżanie okna przeglądarki</h1>
+				<img src="img/refresh" style="height:70%; margin-top: 70px" alt="proces tworzenia strony" />
+			</div>
+			<div class="step always_active" data-x="16500" data-y="1500">
+				<img src="img/a35ea71e.png" alt="Argent UML" />
+				<div class="step" data-x="16500" data-y="1100"></div>
+				<div class="step" data-x="16500" data-y="1500"></div>
+			</div>
+
+			<div class="step slide" style="padding-top:250px" data-x="16500" data-y="2700">
+				<h1 style="font-size: 70px">Komunikacja? WebSockets!</h1>
+			</div>
+
+			<div class="step slide" data-x="17500" style="padding-top: 120px" data-y="0">
+				<h1>Synchronizacja struktury katalogów projektu WWW z serwerem FTP</h1></br></br></br>
+				<h1>Backup projektu</h1></br></br></br>
+				<h1>Wykonywanie komend powłoki BASH</h1></br></br></br>
+				<h1>Import zadań z pliku Makefile</h1>
+			</div>	
+
+				<div class="step slide" style="text-align: center; " data-x="18500" data-y="0">
+					<img src="img/node.png" alt="Node.js" style="margin-top: 200px"/>
+				</div>
+				<div id="node" />
+				<div class="step slide trans" data-x="18500" data-y="0" data-z="-1500">
+					<img src="img/node.png" alt="Node.js" style="height: 100px"/>
+					<div style="margin-top: 150px">
+					<h1>Platforma oparta na silniku V8</h1><h1>(silnik JS z Google Chrome)</h1>
+					</div>
+				</div>
+				<div class="step slide trans" data-x="18500" data-y="0" data-z="-3000">
+					<img src="img/node.png" alt="Node.js" style="height: 100px"/>
+					<div style="margin-top: 150px">
+					<h1>Przeznaczony do prostego tworzenia szybkich, skalowalnych aplikacji internetowych</h1>
+					</div>
+				</div>
+				<div class="step slide trans" data-x="18500" style="text-align: center; " data-y="0" data-z="-4500">
+					<img src="img/wtf.png" alt="Node.js" style="margin-top: 120px"/>
+				</div>
+				<div class="step slide trans" data-x="18500" data-y="0" data-z="-6000">
+					<img src="img/node.png" alt="Node.js" style="height: 100px"/>
+					<div style="margin-top: 180px">
+					<h1>JavaScript - lingua franca frontendu</h1>
+					</div>
+				</div>
+				<div class="step slide trans" data-x="18500" data-y="0" data-z="-7500">
+					<img src="img/node.png" alt="Node.js" style="height: 100px"/>
+					<div style="margin-top: 180px">
+					<h1>Nieblokujący przepływ sterowania</h1>
+					</div>
+				</div>
+				<div class="step slide trans" data-x="18500" data-y="0" data-z="-9000">
+					<img src="img/node.png" alt="Node.js" style="height: 100px"/>
+					<div style="margin-top: 180px">
+					<h1>Programowanie sterowane zdarzeniami</h1>
+					</div>
+				</div>
+				<div class="step slide trans" data-x="18500" data-y="0" data-z="-10500">
+					<img src="img/node.png" alt="Node.js" style="height: 100px"/>
+					<div style="margin-top: 140px">
+					<h1>"lightweight and efficient,</br> perfect for data-intensive</br> real-time applications"</h1>
+					</div>
+				</div>
+				<div class="step slide trans" data-x="18500" data-y="0" data-z="-12000">
+					<img src="img/node.png" alt="Node.js" style="height: 100px"/>
+					<div style="margin-top: 180px">
+					<h1>Warto uczyć się JavaScript:)</h1>
+					</div>
+				</div>
+			</div>
+			<div id="npm">
+				<div class="step slide" data-x="19500" style="text-align: center;" data-y="0" data-z="0">
+					<img src="img/npm.png" alt="Npm" style="margin-top: 220px"/>
+				</div>
+				<div class="step slide trans" data-x="19500" data-y="0" data-z="-1500">
+					<img src="img/npm.png" alt="Npm" style="height: 80px; margin-top: 20px; margin-bottom: 140px; "/>
+<h1>jsftp</h1>
+<h1>fs.watch</h1>
+<h1>websocket</h1>
+<h1>appjs</h1>
+				</div>
+			</div>
+
+				<div class="step slide" style="text-align: center; " data-x="20500" data-y="0">
+					<img src="img/mocha.png" alt="Mocha" style="margin-top: 200px"/>
+				</div>
+				<div class="step slide" style="text-align: center; " data-x="21500" data-y="0">
+					<img src="img/gh.png" alt="GitHub" style="margin-top: 200px"/>
+				</div>
+
+		</div>
+		
+		<script type="text/javascript" src="impress.js"></script>
+		<script>impress().init();</script>
+	</body>
+</html>

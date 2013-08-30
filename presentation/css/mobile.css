@@ -1,0 +1,7 @@
+#left-column {
+	display: none;
+}
+
+#content {
+	left: 0;
+}
