@@ -43,6 +43,52 @@ describe('FsWatcher', function() {
                 done();
             }, 9000);
         });
+
+        it('should act on creation', function(done) {
+            this.timeout(12000);
+            var watcher = new FsWatcher('tmp');
+            var success = false;
+
+            watcher.onCreation(function() {
+                success = true;
+            });
+
+            success.should.not.be.ok;
+
+            setTimeout(function() {
+                fs.appendFile('tmp/created.htm', 'foo', function(e) {
+                  if (e) throw e;
+                })
+            }, 1000);
+
+            setTimeout(function() {
+                success.should.be.ok;
+                done();
+            }, 9000);
+        });
+
+        it('should act on removal', function(done) {
+            this.timeout(12000);
+            var watcher = new FsWatcher('tmp');
+            var success = false;
+
+            watcher.onRemoval(function() {
+                success = true;
+            });
+
+            success.should.not.be.ok;
+
+            setTimeout(function() {
+                fs.unlink('tmp/index.htm', 'foo', function(e) {
+                  if (e) throw e;
+                })
+            }, 1000);
+
+            setTimeout(function() {
+                success.should.be.ok;
+                done();
+            }, 9000);
+        });
     });
 
     // describe('handling a directory recursively', function() {

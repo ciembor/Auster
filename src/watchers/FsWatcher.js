@@ -26,14 +26,23 @@ function FsWatcher(path, options) {
 
 }
 
+function onAction(that, event, callback) {
+	that.promise.then(function() {
+	        that.watcher.on(event, function(f, curr, prev) {
+            callback();
+	    });
+	});
+}
+
 FsWatcher.prototype = {
 	onModification: function(callback) {
-		var that = this;
-		this.promise.then(function() {
-		    that.watcher.on('changed', function(f, curr, prev) {
-		        callback();
-		    });
-		});
+		onAction(this, 'changed', callback)
+	},
+	onCreation: function(callback) {
+		onAction(this, 'created', callback)
+	},
+	onRemoval: function(callback) {
+		onAction(this, 'removed', callback)
 	}
 };
 
