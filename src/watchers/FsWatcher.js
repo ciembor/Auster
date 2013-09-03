@@ -26,28 +26,28 @@ function FsWatcher(path, options) {
 
 }
 
-function onAction(that, event, actions) {
-  if (Object.prototype.toString.call(actions) !== '[object Array]') {
-    actions = [actions]
-  }
+function onEvent(that, event, actions) {
+	if (Object.prototype.toString.call(actions) !== '[object Array]') {
+		actions = [actions];
+	}
 	that.promise.then(function() {
 	    that.watcher.on(event, function(f, curr, prev) {
-        actions.forEach(function(action) {
-          action.act();
-        });
+	        actions.forEach(function(action) {
+	        	action.act();
+	        });
 	    });
 	});
 }
 
 FsWatcher.prototype = {
 	onModification: function(actions) {
-		onAction(this, 'changed', actions)
+		onEvent(this, 'changed', actions)
 	},
 	onCreation: function(actions) {
-		onAction(this, 'created', actions)
+		onEvent(this, 'created', actions)
 	},
 	onRemoval: function(actions) {
-		onAction(this, 'removed', actions)
+		onEvent(this, 'removed', actions)
 	},
 	onChange: function(actions) {
 		this.onModification(actions);
