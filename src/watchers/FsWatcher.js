@@ -26,23 +26,33 @@ function FsWatcher(path, options) {
 
 }
 
-function onAction(that, event, callback) {
+function onAction(that, event, actions) {
+  if (Object.prototype.toString.call(actions) !== '[object Array]') {
+    actions = [actions]
+  }
 	that.promise.then(function() {
-	        that.watcher.on(event, function(f, curr, prev) {
-            callback();
+	    that.watcher.on(event, function(f, curr, prev) {
+        actions.forEach(function(action) {
+          action.act();
+        });
 	    });
 	});
 }
 
 FsWatcher.prototype = {
-	onModification: function(callback) {
-		onAction(this, 'changed', callback)
+	onModification: function(actions) {
+		onAction(this, 'changed', actions)
 	},
-	onCreation: function(callback) {
-		onAction(this, 'created', callback)
+	onCreation: function(actions) {
+		onAction(this, 'created', actions)
 	},
-	onRemoval: function(callback) {
-		onAction(this, 'removed', callback)
+	onRemoval: function(actions) {
+		onAction(this, 'removed', actions)
+	},
+	onChange: function(actions) {
+		this.onModification(actions);
+		this.onCreation(actions);
+		this.onRemoval(actions);
 	}
 };
 
